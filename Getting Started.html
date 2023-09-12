@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Namig Abbasov">
+
+<title>getting-started</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Getting Started_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Getting Started_files/libs/quarto-html/quarto.js"></script>
+<script src="Getting Started_files/libs/quarto-html/popper.min.js"></script>
+<script src="Getting Started_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Getting Started_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Getting Started_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Getting Started_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Getting Started_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Getting Started_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Getting Started_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="getting-started-with-r" class="level1">
+<h1>Getting Started with R</h1>
+<p>Dr.&nbsp;Namig Abbasov</p>
+<p>Digital Humanities Analyst at <a href="https://lib.asu.edu/data"><strong>Data Science and Analytics</strong></a>, Arizona State University.<br>
+</p>
+<p>Welcome to the exciting world of learning R! R stands as a versatile and potent programming language and statistical software. It is renowned for its prowess in data analysis, statistical modeling, and data visualization. Regardless of whether you’re a novice or possess prior programming experience, R provides an abundance of tools and resources to empower you in the effective analysis and visualization of data. R is an open-source language and environment for statistical computing and graphics. For additional details, please refer to the <a href="https://www.r-project.org/">R project homepage</a>.</p>
+<p>We will use R statistical software within RStudio. You will need to install both software.RStudio is an integrated development environment (IDE) specifically designed for working with the R programming language. It provides a user-friendly <strong><em>interface</em></strong> for writing, running, and managing R code. For additional details, please refer to the <a href="https://posit.co/">Posit’s homepage</a>. RStudio company rebranded itself as Posit. RStudio is widely used in the R community for statistical modeling, data visualization, and scientific research. It is widely used for replication files of academic journal articles. For instance, you can get replication files from https://dataverse.harvard.edu/. Both R and RStudio are free.</p>
+<section id="installing-r" class="level3">
+<h3 class="anchored" data-anchor-id="installing-r">Installing R:</h3>
+<ol type="1">
+<li>Go to the <a href="https://cran.rstudio.com/">R Project website’s download page</a>.
+<ul>
+<li><p>For Macs, https://cran.r-project.org/bin/macosx/. Make sure whether your laptop is Apple silicon (M1/M2) Macs or Intel (chips) Macs. You can check it from “About This Mac” on your Mac.</p></li>
+<li><p>For Windows, https://cran.r-project.org/bin/windows/base/ or https://cran.r-project.org/</p></li>
+<li><p>For other operating systems, please, check out: https://cran.r-project.org/</p></li>
+</ul></li>
+<li>Download the R installer appropriate for your operating system and run the installer, following the installation instructions.</li>
+</ol>
+</section>
+<section id="installing-r-studio" class="level3">
+<h3 class="anchored" data-anchor-id="installing-r-studio">Installing R Studio:</h3>
+<ol type="1">
+<li>Go to the <a href="https://www.rstudio.com/products/rstudio/download/">RStudio download page</a></li>
+<li>Scroll down and you will see “All Installers and Tarballs” Heading</li>
+<li>Choose the RStudio Desktop edition that is suitable for your operating system (Windows, macOS, or Linux).</li>
+<li>Download and run the RStudio installer and follow the installation instructions.</li>
+<li>Start RStudio: you can open it by clicking on the RStudio icon in your applications or by searching for “RStudio” in your system’s search bar.</li>
+</ol>
+<p>Key features of RStudio:</p>
+<ol type="1">
+<li><p><strong>Script Editor/Source:</strong> RStudio includes a script editor, making it easier to write, edit, and save R codes for future use.</p></li>
+<li><p><strong>Console:</strong> The R console allows you to interactively execute R code and see the results immediately. You can use it for testing code snippets and exploring data interactively.</p></li>
+<li><p><strong>EnvironmentWorkspace/History:</strong> You can view and manage your R workspace, enviroment, and command history within RStudio. It is a good practice to run rm(list = ls()) code to empty your environment before starting to work on your R file.</p></li>
+<li><p><strong>File/Plot/Package Management:</strong> You can work with R scripts, data files, and other resources directly within RStudio. RStudio offers a dedicated plot pane for viewing and interacting with plots and visualizations generated by R. RStudio provides tools for managing R packages, including installation, updating, and loading packages. It also helps you keep track of which packages are currently active in your session.</p></li>
+</ol>
+</section>
+<section id="set-working-directory" class="level3">
+<h3 class="anchored" data-anchor-id="set-working-directory">Set Working Directory</h3>
+<p>In R, you can set the working directory using the <strong><code>setwd()</code></strong> function. The working directory is the folder in your file system where R will look for and save files by default. Alternatively, you can set your directory either from RStudio menu or creating R projects.</p>
+<ol type="1">
+<li><p><strong>Using RStudio:</strong></p>
+<ul>
+<li>Go to the “Session” menu at the top of the RStudio interface.</li>
+<li>Select “Set Working Directory.”</li>
+<li>Choose “To Source File Location” to set the working directory to the location of the currently open R script (if applicable).</li>
+<li>Alternatively, you can choose “Choose Directory” to manually browse and select the desired directory.</li>
+</ul></li>
+<li><p><strong>Creating R Projects (Recommended):</strong></p>
+<p>In RStudio, it’s a good practice to create R projects for your work. When you create an R project, the working directory is automatically set to the project’s directory. To create an R project:</p>
+<ul>
+<li>Go to the “File” menu in RStudio.</li>
+<li>Select “New Project.”</li>
+<li>Choose a project type (e.g., “New Directory” or “Existing Directory”) and specify the project directory.</li>
+<li>Click “Create Project.” RStudio will open the project and set the working directory accordingly.</li>
+</ul></li>
+</ol>
+<p>Setting the working directory is essential for loading data files, saving output, and managing your R scripts effectively. It is important to set the working directory to ensure that R can access the necessary files and resources for your analysis. Below is the directory in my laptop. You will need to change it in your directory. If you want to work on this vis_1.qmd file in your RStudio, you can manually browse and select the desired directory (Using RStudio option above). The code with your selected working directory will appear in your consule. You can copy that code and past to the chunk below, replacing my working directory with yours.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/namigabbasov/Library/Mobile Documents/com~apple~CloudDocs/Statistical training/R files/Rworkshop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="importing-data-to-r" class="level3">
+<h3 class="anchored" data-anchor-id="importing-data-to-r">Importing Data to R</h3>
+<p>We will work with both built-in datasets and imported data. There are several built-in datasets that come with the base R installation. These datasets cover a wide range of topics and are often used in examples and tutorials. You can import your data either from your computer or an online link. The code you use to import data depends on the type of your data source and format. For instance, if your data is csv format, you will use read.csv() function. You can also import the data by clicking “import” and choosing the right data format in <strong><em>Environment</em></strong> section of RStudio.</p>
+<p>In our tutorials, we will import our dataset from a link to GitHub repository. All RStudio, data, and rendered html files are stored in <a href="https://github.com/UnitForDataScience/RWorkshop/tree/main">RWorkshop repository</a> of our <a href="https://github.com/UnitForDataScience">UnitforDataScience</a> GitHub. The dataset is structured in a country-year format, covering comprehensive information about all countries spanning the years from 1946 to 2021. Most of variables have been merged from Quality of Government(QoG) Standard Dataset. You can access to the <a href="https://www.qogdata.pol.gu.se/data/codebook_std_jan23.pdf">Codebook</a> from QoG Institute.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>total<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/UnitForDataScience/RWorkshop/main/RWorkshop_data.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#total&lt;-read.csv("/Users/namigabbasov/Library/Mobile Documents/com~apple~CloudDocs/Statistical training/R files/Rworkshop/RWorkshop_data.csv") #This is an alternative import. This is a directory to my laptop. It won't work in your machine because your directory is different. If you can't import the data from our GitHub repository, you can just download it and import it manually from your RStudio: Environment=&gt;Import DataSet=&gt;From Text(readr)=&gt;Browse=&gt;select where you have downloaded/stored the data. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="install-required-packages" class="level3">
+<h3 class="anchored" data-anchor-id="install-required-packages">Install Required Packages</h3>
+<p>In R, packages are collections of functions, data sets, and documentation bundled together for specific purposes.</p>
+<p><strong>Installing Packages:</strong></p>
+<ul>
+<li>Before you can use a package, you need to install it. You can install packages from CRAN (Comprehensive R Archive Network), which is the primary repository for R packages, or from other sources like GitHub.</li>
+<li>To install a package from CRAN, use the <strong><code>install.packages()</code></strong> function, followed by the package name in quotes.</li>
+<li>To install a package from GitHub, you can use the <strong><code>devtools</code></strong> package and its <strong><code>install_github()</code></strong> function. First, install and load the <strong><code>devtools</code></strong> package, and then install the package from GitHub.</li>
+<li>To see a list of all the packages installed on your system, you can use the <strong><code>installed.packages()</code></strong> function.</li>
+<li>If you no longer need a package, you can remove it from your R installation using the <strong><code>remove.packages()</code></strong> function.</li>
+</ul>
+<p><strong>Loading Packages:</strong></p>
+<ul>
+<li>Once a package is installed, you need to load it into your R session using the <strong><code>library()</code></strong> or <strong><code>require()</code></strong> function. Loading a package makes its functions and data sets available for use.</li>
+<li>You can also use <strong><code>require()</code></strong> to load a package, which returns a logical value (<strong><code>TRUE</code></strong> if the package is available, <strong><code>FALSE</code></strong> if it’s not).</li>
+<li>You might need to update packages by running the <strong><code>update.packages()</code></strong> function. Over time, packages may receive updates to fix bugs or add new features.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.2     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ lubridate 1.9.2     ✔ tibble    3.2.1
+✔ purrr     1.0.2     ✔ tidyr     1.3.0
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datasets)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Please cite as: 
+
+ Hlavac, Marek (2022). stargazer: Well-Formatted Regression and Summary Statistics Tables.
+ R package version 5.2.3. https://CRAN.R-project.org/package=stargazer </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datasets)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>datasets<span class="sc">::</span>anscombe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   x1 x2 x3 x4    y1   y2    y3    y4
+1  10 10 10  8  8.04 9.14  7.46  6.58
+2   8  8  8  8  6.95 8.14  6.77  5.76
+3  13 13 13  8  7.58 8.74 12.74  7.71
+4   9  9  9  8  8.81 8.77  7.11  8.84
+5  11 11 11  8  8.33 9.26  7.81  8.47
+6  14 14 14  8  9.96 8.10  8.84  7.04
+7   6  6  6  8  7.24 6.13  6.08  5.25
+8   4  4  4 19  4.26 3.10  5.39 12.50
+9  12 12 12  8 10.84 9.13  8.15  5.56
+10  7  7  7  8  4.82 7.26  6.42  7.91
+11  5  5  5  8  5.68 4.74  5.73  6.89</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'magrittr'
+
+The following object is masked from 'package:purrr':
+
+    set_names
+
+The following object is masked from 'package:tidyr':
+
+    extract</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="most-common-file-types-in-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="most-common-file-types-in-rstudio">Most Common File Types in RStudio</h3>
+<ol type="1">
+<li><p><strong>R Script (.R)</strong>: This is the most common file type used for writing R code. You can create, edit, and run R scripts in RStudio.</p></li>
+<li><p><strong>R Markdown (.Rmd)</strong>: R Markdown files allow you to mix R code, text, and formatting in a single document. You can create dynamic reports and presentations using R Markdown.</p></li>
+<li><p><strong>Quarto Document (qmd):</strong> Quarto offers a comprehensive authoring framework tailored for data science, seamlessly integrating your code, its outcomes, and your written explanations. Quarto documents ensure complete reproducibility and offer versatile output formats, including PDFs, Word documents, presentations, and more.</p>
+<p>Quarto files are designed to serve three primary purposes:</p>
+<ul>
+<li><strong>Effective Communication:</strong> They enable concise communication with decision-makers who prioritize conclusions over the technical details of the analysis.</li>
+<li><strong>Collaboration:</strong> Quarto facilitates collaboration among data scientists, allowing them to delve into both the conclusions and the underlying code that led to those conclusions.</li>
+<li><strong>Data Science Environment:</strong> Quarto serves as a dynamic workspace for data science, functioning as a contemporary digital lab notebook. Here, you can not only document your actions but also capture your thoughts and insights. Please, refer to <a href="https://r4ds.hadley.nz/quarto">R for Data Science</a> Book for more info.</li>
+</ul></li>
+<li><p><strong>R Project (.Rproj)</strong>: An R Project file is used to organize your work within RStudio. It helps manage your files, packages, and settings for a specific project.</p></li>
+<li><p><strong>HTML Files (.html)</strong>: You can create, edit, and view HTML files in RStudio, which is useful for generating web-based reports and documentation.</p></li>
+<li><p><strong>PDF Files (.pdf)</strong>: RStudio can generate PDF documents from R Markdown and Quarto files and other sources using packages like <strong><code>rmarkdown</code></strong> and <strong><code>knitr</code></strong>.</p></li>
+<li><p><strong>Shiny Apps (.R, .Rmd)</strong>: If you are developing Shiny web applications in RStudio, you’ll typically work with .R and .Rmd files for server and UI components.</p></li>
+<li><p><strong>Image Files</strong>: <strong>PNG, JPG, GIF (.png, .jpg, .gif)</strong>: You can create and manipulate images using R packages like <strong><code>ggplot2</code></strong> and <strong><code>imager</code></strong>.</p></li>
+<li><p><strong>Data Files</strong>:</p>
+<ul>
+<li><p><strong>CSV (.csv)</strong>: Comma-separated values files are commonly used for storing tabular data.</p></li>
+<li><p><strong>Excel (.xlsx, .xls)</strong>: RStudio can read and write Excel files using packages like <strong><code>readxl</code></strong> and <strong><code>writexl</code></strong>.</p></li>
+<li><p><strong>R Data (.RData)</strong>: You can save and load R objects, including data frames and variables, using .RData files.</p></li>
+<li><p><strong>Other Data Formats</strong>: RStudio supports various other data formats such as JSON, XML, HDF5, and more, often with the help of specific packages.</p></li>
+</ul></li>
+</ol>
+</section>
+<section id="basics-of-r-coding" class="level3">
+<h3 class="anchored" data-anchor-id="basics-of-r-coding">Basics of R Coding</h3>
+<ul>
+<li>Use R to make basic math calculations</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dv">20</span><span class="sc">+</span><span class="dv">30</span>          <span class="co">#addition</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 50</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dv">30-20</span>          <span class="co">#subtraction </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span><span class="sc">/</span><span class="dv">14</span><span class="sc">*</span><span class="dv">35</span>      <span class="co">#division and multiplication</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 250</code></pre>
+</div>
+</div>
+<ul>
+<li>Create new objects using the assignment operator <code>&lt;-</code>:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>hello<span class="ot">&lt;-</span><span class="st">"Hello World"</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>add<span class="ot">&lt;-</span><span class="dv">20</span><span class="sc">+</span><span class="dv">30</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Combine multiple elements into a vector using the <strong><code>c()</code></strong> function:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>num<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>,<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Apply basic arithmetic on vectors</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>num<span class="sc">*</span><span class="dv">5</span> <span class="co">#applied to every element in the vector </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  5 10 15 20 25 30 35 40 45</code></pre>
+</div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
