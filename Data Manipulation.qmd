@@ -1,0 +1,321 @@
+---
+title: "Data Manipulation"
+format: pdf
+editor: visual
+---
+
+```{r}
+## you can set your working directory in this chunk 
+
+#setwd("/Users/namigabbasov/Desktop/R-Data-Carpentry")
+```
+
+```{r}
+## libraries 
+
+#install.packages("tidyverse")
+#install.packages("magrittr")
+
+library(tidyverse)
+library(magrittr)
+```
+
+```{r}
+## import data
+surveys<-read_csv("https://raw.githubusercontent.com/UnitForDataScience/RWorkshop/main/portal_data_joined.csv")
+```
+
+
+# Data manipulation using dplyr
+
+We’re going to learn some of the most common dplyr functions:
+
+select(): subset columns
+filter(): subset rows on conditions
+mutate(): create new columns by using information from other columns
+group_by() and summarize(): create summary statistics on grouped data
+arrange(): sort results
+count(): count discrete values
+
+## Selecting columns 
+```{r}
+select(surveys, plot_id, species_id, weight)
+```
+
+
+## Filtering rows
+```{r}
+select(surveys, -record_id, -species_id)
+filter(surveys, year == 1995)
+```
+
+
+## Two or More Fucntions at the Same Time: Pipes
+```{r}
+## Intermediate steps 
+
+surveys2 <- filter(surveys, weight < 5)
+surveys_sml <- select(surveys2, species_id, sex, weight)
+
+## nested functions
+surveys_sml <- select(filter(surveys, weight < 5), species_id, sex, weight)
+
+
+## pipes
+surveys %>%
+  filter(weight < 5) %>%
+  select(species_id, sex, weight)
+
+## Alternative New Pipe Operator 
+surveys %>%
+  filter(weight < 5) %>%
+  select(species_id, sex, weight)
+```
+
+
+```{r}
+## Assign it to a new object(surveys_sml) 
+
+surveys_sml <- surveys %>%
+  filter(weight < 5) %>%
+  select(species_id, sex, weight)
+
+surveys_sml
+```
+## Mutate: Make new variables 
+```{r}
+surveys %>%
+  mutate(weight_kg = weight / 1000)
+```
+
+
+```{r}
+## create two columns at the same time
+
+surveys %>%
+  mutate(weight_kg = weight / 1000,
+         weight_lb = weight_kg * 2.2)
+```
+
+```{r}
+## you can add other functions to Pipe as well 
+surveys %>%
+  mutate(weight_kg = weight / 1000) %>%
+  head()
+```
+
+```{r}
+## We can also filter missing observations before making a new column
+surveys %>%
+  filter(!is.na(weight)) %>%
+  mutate(weight_kg = weight / 1000) %>%
+  head()
+```
+
+
+## Operations on Groups: The group_by() and summarize() functions
+```{r}
+## We group the data by "sex" column
+surveys %>%
+  group_by(sex) %>%
+  summarize(mean_weight = mean(weight, na.rm = TRUE))
+```
+
+```{r}
+## You can also group by multiple columns 
+surveys %>%
+  group_by(sex, species_id) %>%
+  summarize(mean_weight = mean(weight, na.rm = TRUE)) %>%
+  tail()
+```
+
+```{r}
+## Filter out NAs before grouping 
+surveys %>%
+  filter(!is.na(weight)) %>%
+  group_by(sex, species_id) %>%
+  summarize(mean_weight = mean(weight))
+```
+```{r}
+## Add print function to see the first 15 observations 
+surveys %>%
+  filter(!is.na(weight)) %>%
+  group_by(sex, species_id) %>%
+  summarize(mean_weight = mean(weight)) %>%
+  print(n = 15)
+```
+
+
+```{r}
+## summarize multiple columns 
+surveys %>%
+  filter(!is.na(weight)) %>%
+  group_by(sex, species_id) %>%
+  summarize(mean_weight = mean(weight),
+            min_weight = min(weight))
+```
+
+## arrange(): sort results
+```{r}
+surveys|>
+  arrange(hindfoot_length)
+```
+```{r}
+## Let's make it in descending order
+surveys|>
+  arrange(desc(hindfoot_length))
+```
+
+```{r}
+## we can also arrange after other data manipulation operations 
+surveys %>%
+  filter(!is.na(weight)) %>%
+  group_by(sex, species_id) %>%
+  summarize(mean_weight = mean(weight),
+            min_weight = min(weight)) %>%
+  arrange(min_weight)
+```
+## Counting
+```{r}
+## let's count how many categories we have in "sex" variable 
+surveys %>%
+    count(sex)
+```
+```{r}
+## grouping by "sex" and summarizing will give the same result. 
+surveys %>%
+    group_by(sex) %>%
+    summarize(count = n())
+```
+
+```{r}
+## The sort = TRUE argument sorts the resulting counts in descending order.
+surveys %>%
+    count(sex, sort = TRUE)
+```
+
+```{r}
+## count combination of factors 
+surveys %>%
+  count(sex, species)
+```
+```{r}
+## arrange in descending order for species(alphabetically)
+surveys %>%
+  count(sex, species) %>%
+  arrange(species, desc(n))
+```
+```{r}
+## arrange in descending order for n 
+surveys %>%
+  count(sex, species, sort = TRUE) 
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Reshaping with pivot_wider and pivot_longer
+
+1. Each variable has its own column
+2. Each observation has its own row
+3. Each value must have its own cell
+4. Each type of observational unit forms a table
+```{r}
+## First, let's make a new dataframe from our "Surveys" dataset
+surveys_gw <- surveys %>%
+  filter(!is.na(weight)) %>%
+  group_by(plot_id, genus) %>%
+  summarize(mean_weight = mean(weight))
+```
+```{r}
+## check variables 
+str(surveys_gw)
+```
+
+
+## Pivot_wider
+
+```{r}
+surveys_wide <- surveys_gw %>%
+  pivot_wider(names_from = genus, values_from = mean_weight)
+
+str(surveys_wide)
+```
+
+```{r}
+## fill in missing observations 
+surveys_gw %>%
+  pivot_wider(names_from = genus, values_from = mean_weight, values_fill = 0) %>%
+  head()
+```
+
+
+## Pivot_longer
+
+```{r}
+surveys_long <- surveys_wide %>%
+  pivot_longer(names_to = "genus", values_to = "mean_weight", cols = -plot_id)
+
+str(surveys_long)
+```
+```{r}
+## look at first observations 
+surveys_wide %>%
+  pivot_longer(names_to = "genus", values_to = "mean_weight", cols = -plot_id) %>%
+  head()
+```
+# Exporting data
+```{r}
+## Let's make a new data 
+
+
+surveys_complete <- surveys %>%
+  filter(!is.na(weight),           # remove missing weight
+         !is.na(hindfoot_length),  # remove missing hindfoot_length
+         !is.na(sex))                # remove missing sex
+
+
+
+## Extract the most common species_id
+species_counts <- surveys_complete %>%
+    count(species_id) %>%
+    filter(n >= 50)
+
+## Only keep the most common species
+surveys_complete <- surveys_complete %>%
+  filter(species_id %in% species_counts$species_id)
+```
+
+
+```{r}
+# Export the data final data 
+write_csv(surveys_complete, file = "surveys_complete.csv")
+```
+
+```{r}
+## export it as excel 
+
+#install.packages("writexl")
+
+library(writexl)
+write_xlsx(x= surveys_complete, path="surveys_complete.xlsx", col_names=TRUE)
+```
+
+
+
+

@@ -1,0 +1,176 @@
+---
+title: "Starting with Data"
+format: pdf
+editor: visual
+---
+
+```{r}
+#setwd("/Users/namigabbasov/Desktop/R-Data-Carpentry")
+```
+
+```{r}
+# Libraries 
+
+# install.packages("tidyverse")
+# install.packages("ggplot2")
+
+
+
+library(tidyverse)
+library(ggplot2)
+```
+
+
+## Loading the survey data
+
+```{r}
+#download.file(url = "https://ndownloader.figshare.com/files/2292169",
+              #destfile = "portal_data_joined.csv")
+#surveys <- read_csv("portal_data_joined.csv")
+```
+
+```{r}
+# data import from github 
+surveys<-read_csv("https://raw.githubusercontent.com/UnitForDataScience/RWorkshop/main/portal_data_joined.csv")
+```
+
+
+## Data Frames
+
+```{r}
+str(surveys)
+```
+
+## Inspecting data frames
+
+```{r}
+#size
+dim(surveys)
+nrow(surveys)
+ncol(surveys)
+              
+
+# content 
+head(surveys, n= 10)
+tail(surveys)
+
+# names
+names(surveys)
+row_names<-rownames(surveys)
+
+# summary 
+summary(surveys)
+```
+
+## Indexing and subsetting data frames
+
+```{r}
+# index by numbers 
+firstrow_first_column<-surveys[1,1]
+firstrow_allcolumns<-surveys[1,]
+allrows_firstcolumn<-surveys[,1]
+
+first_column <-surveys[[1]]        # get first column as vector 
+
+surveys[1:6, 5:7]   # get a part of the data 
+```
+
+```{r}
+# index by a column name 
+
+plot_id<- surveys["plot_id"]
+plot_id<-surveys[, "plot_id"]
+sex<- my_colum<-surveys$sex
+```
+
+## Factors
+
+```{r}
+# make factor variable from surveys dataframe 
+order<- factor(c("Less", "A bit more", "more", "most"))
+levels(order)
+```
+
+```{r}
+# reorder: levels = c("male", "female")
+ordered<-factor(order, levels = c("Less", "A bit more", "more", "most"))
+levels(ordered)
+```
+
+```{r}
+#converting first as character first and then as numeric 
+years<- factor(c(1991, 1993, 1992, 1999,1990))
+
+as.numeric(years) # incorrect way to covert to numeric 
+
+as.numeric(as.character(years)) # right way to covert to numeric 
+```
+
+```{r}
+# ploting
+plot(ordered)
+```
+
+```{r}
+# Renaming factors: save a column as object, addNA(x), 
+sex <- surveys$sex
+sex<- addNA(sex)
+levels(sex)[3]<-"Unknown"
+```
+
+```{r}
+# plot again
+plot(sex)
+```
+
+```{r}
+# make a barplot 
+sex_table<-table(sex)
+barplot(sex_table, main="Sex of Animal", col="blue", xlab="Sex", ylab="Count")
+```
+
+## Formatting dates
+
+```{r}
+library(lubridate)
+
+```
+
+```{r}
+my_date <- ymd("2015-01-01")
+str(my_date)
+```
+
+```{r}
+my_date <- ymd(paste("2015", "1", "1", sep = "-")) 
+str(my_date)
+```
+
+```{r}
+# create a data variable in survey dataset 
+cont_time_variables<-paste(surveys$year, surveys$month, surveys$day, sep = "-")
+date_column<-ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))
+
+surveys$date<-ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))
+```
+```{r}
+na_day<-is.na(surveys$day)
+surveys$date[na_day]
+
+na_month<-is.na(surveys$month)
+surveys$date[na_month]
+
+na_year<-is.na(surveys$year)
+surveys$date[na_year]
+
+na_date<-is.na(surveys$date)
+surveys$date[na_date]
+
+sum(is.na(surveys$date))
+```
+
+
+```{r}
+missing_dates <- surveys[is.na(surveys$date), c("year", "month", "day")]
+head(missing_dates)
+```
